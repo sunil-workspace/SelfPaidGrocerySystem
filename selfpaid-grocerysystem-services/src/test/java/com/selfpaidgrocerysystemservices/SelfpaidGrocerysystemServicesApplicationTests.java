@@ -1,4 +1,4 @@
-package com.selfpaidgrocerysystem.selfpaidgrocerysystemservices;
+package com.selfpaidgrocerysystemservices;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
