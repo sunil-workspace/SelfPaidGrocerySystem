@@ -1,0 +1,36 @@
+<span *ngIf="selectPaymentType==true; then paymentSelectTemplate; else paymentTemplate">
+</span>
+
+<div class="FinishPay">
+<ng-template #paymentSelectTemplate>
+  
+  <h4><label class="SelectPayment">Select Payment Type</label></h4>
+  
+  <button><img class="img-fluid" alt="Cash Image" src="..\assets\images\cash.jpg" width="84vh" height="84vh" (click)="cashSelected()"><h4 class="imageCaption">CASH</h4></button>&nbsp;&nbsp;
+  <button><img class="img-fluid" alt="Credit Card Image" src="..\assets\images\creditCard.jpg"  width="84vh" height="84vh" (click)="creditCardSelected()"><h4 class="imageCaption">CREDIT CARD</h4></button>
+  <br>
+  <br>
+  <button><img class="img-fluid" alt="Debit Card Image" src="..\assets\images\debitCard.jpg"  width="84vh" height="84vh" (click)="debitCardSelected()"><h4 class="imageCaption">DEBIT CARD</h4></button>&nbsp;&nbsp;
+  <button><img class="img-fluid" alt="Gift Card Image" src="..\assets\images\giftCard.jpg"  width="84vh" height="84vh" (click)="giftCardSelected()"><h4 class="imageCaption">GIFT CARD</h4></button>
+  <br>
+  <br>
+</ng-template>
+</div>
+
+<ng-template #paymentTemplate>
+  <span *ngIf="cash==true">
+    <app-cash></app-cash>
+  </span>
+
+  <span *ngIf="creditCard==true">
+    <app-credit-card></app-credit-card>
+  </span>
+
+  <span *ngIf="debitCard==true">
+    <app-debit-card></app-debit-card>
+  </span>
+
+  <span *ngIf="giftCard==true">
+    <app-gift-card></app-gift-card>
+  </span>
+</ng-template>

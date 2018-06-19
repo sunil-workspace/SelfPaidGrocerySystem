@@ -1,0 +1,17 @@
+.selfCheckoutImageText{
+    font-weight: bold;
+    color:rgb(127, 136, 255);
+}
+
+.onloadLeftSide{
+    align-items: auto;
+   text-align: center;
+   margin: 10% auto;
+   
+}
+.img-fluid{
+    width: 50%;
+    height: auto;
+    
+
+}

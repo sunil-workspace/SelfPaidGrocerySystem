@@ -1,0 +1,77 @@
+<div class="row leftRightHeight">
+  
+<div class="col-sm-6 item-scroll">
+    <h3>Please enter the below details:</h3>
+    <br>
+    <table>
+
+      <tr>
+        <td>Name on the Card: </td>
+        <td>
+          <input type="text">
+        </td>
+      </tr>
+
+      <tr>
+        <td>Card Number: </td>
+        <td>
+          <input type="text">
+        </td>
+      </tr>
+
+      <tr>
+          <td>Expiry Date: </td>
+          <td>
+            <input type="month">
+          </td>
+        </tr>
+
+      <!-- <tr>
+        <td>Expiry Date: </td>
+        <td>
+          <select>
+            <option>---select---</option>
+            <option>2018</option>
+            <option>2019</option>
+            <option>2020</option>
+            <option>2021</option>
+          </select>
+        </td>
+      </tr>
+ -->
+      <tr>
+        <td>Card Code: </td>
+        <td>
+          <input type="text">
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan=2 align="center">
+          <input type="submit" name="submitButton" value="submit">
+        </td>
+      </tr>
+
+    </table>
+  </div>
+
+  <div class="col-sm-6 item-scroll">
+    
+    <h4><label class="SelectPayment">Select Other Payment Option here</label></h4>
+  
+    <button><img class="img-fluid" alt="Cash Image" src="..\assets\images\cash.jpg" width="84vh" height="84vh" (click)="cashSelected()"><h4 class="imageCaption">CASH</h4></button>&nbsp;&nbsp;
+
+    <br>
+    <br>
+    <button><img class="img-fluid" alt="Debit Card Image" src="..\assets\images\debitCard.jpg"  width="84vh" height="84vh" (click)="debitCardSelected()"><h4 class="imageCaption">DEBIT CARD</h4></button>&nbsp;&nbsp;
+    <button><img class="img-fluid" alt="Gift Card Image" src="..\assets\images\giftCard.jpg"  width="84vh" height="84vh" (click)="giftCardSelected()"><h4 class="imageCaption">GIFT CARD</h4></button>
+    <br>
+    <br>
+  </div>
+
+
+
+
+
+  
+</div>

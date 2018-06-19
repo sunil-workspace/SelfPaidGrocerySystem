@@ -1,0 +1,12 @@
+.leftRightHeight div {
+    height: 84vh; /* 30% of viewport height*/
+    text-align: center;
+  }
+
+  .bottom div {
+    height: 10vh; /* 30% of viewport height*/
+  }
+
+  .tableLookFinishHeight div{
+    height: 84vh;
+  }

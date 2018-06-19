@@ -1,0 +1,32 @@
+<!--display logo and display table-->
+
+<div class="logoTableImage">
+    <h5 class="selfCheckoutImageText">Self Checkout</h5>
+    <img alt="Self Checkout Image" width="150" height="150" src="..\assets\images\cartSymbol.jpg" align="middle">
+</div>
+
+<br>
+<span *ngIf="itemsSelectedArr.length > 0">
+    <div panel panel-default>
+        <!--<span onload="loadItemsToitemsSelectedArr()"></span>-->
+        <table class="table table-hover itemDisplayTable">
+            <thead>
+                <tr>
+                    <th scope="col" style="width: 25%;">Item Name</th>
+                    <th scope="col" style="width: 25%;">Price</th>
+                    <th scope="col" style="width: 25%;">Quantity</th>
+                    <th scope="col" style="width: 25%;">Weight</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let itemsSelected of itemsSelectedArr">
+                    <td style="width: 25%;">{{itemsSelected.NAME}}</td>
+                    <td style="width: 25%;">{{itemsSelected.PRICE}}</td>
+                    <td style="width: 25%;">{{itemsSelected.QUANTITY}}</td>
+                    <td style="width: 25%;">{{itemsSelected.WEIGHT}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</span>

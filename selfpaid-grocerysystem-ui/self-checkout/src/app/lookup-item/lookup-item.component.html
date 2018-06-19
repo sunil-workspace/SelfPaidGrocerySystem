@@ -1,0 +1,539 @@
+
+<!-- <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head> -->
+
+<div class="container">
+<div class="row leftRightHeight">
+    
+  <div class="col-sm-9 item-scroll" style="background-color:lavender;">
+      
+    <!--A-->
+
+    <span *ngIf='selectedItemRange=="A"'>
+    <button>
+      <img class="img-fluid" alt="Cash Image" src="..\assets\images\itemImages\A\apples.jpg" id="Apple" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">APPLES</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\A\avocado.jpg" alt="Avocado" id="Avocado" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">AVOCADO</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\A\acerola.jpg" alt="Acerola" id="Acerola" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">ACEROLA</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\A\apricot.jpg" alt="Apricot" id="Apricot" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">APRICOT</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\A\artichoke.jpg" alt="Artichoke" id="Artichoke" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">ARTICHOKE</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\A\asparagus.jpg" alt="Asparagus" id="Asparagus" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">ASPARAGUS</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\A\aubergine.jpg" alt="Aubergine" id="Aubergine" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">AUBERGINE</h4>
+    </button>
+  </span>
+    <!--B-->
+    <span *ngIf='selectedItemRange=="B-C"'>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\B-C\banana.jpg" alt="Banana" id="Banana" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">BANANA</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\B-C\broccoli.jpg" alt="Broccoli" id="broccoli" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">BROCCOLI</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\B-C\beetroot.jpg" alt="beetroot" id="beetroot" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">BEETROOT</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\B-C\blackBerries.jpg" alt="BlackBerries" id="blackBerries" width="84vh"
+        height="84vh" (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">BLACKBERRIES</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\B-C\blackEyeBean.jpg" alt="BlackEyeBean" id="blackEyeBean" width="84vh"
+        height="84vh" (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">BLACKEYE BEAN</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\B-C\blueBerries.jpg" alt="BlueBerries" id="blueBerries" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">BLUE BERRIES</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\B-C\bread.jpg" alt="Bread" id="bread" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">BREAD</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\B-C\broadBean.jpg" alt="BroadBean" id="broadBean" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">BROAD BEAN</h4>
+    </button>
+
+    
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\B-C\cabbage.jpg" alt="Cabbage" id="cabbage" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">CABBAGE</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\B-C\carrot.jpg" alt="Carrot" id="carrot" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">CARROT</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\B-C\cauliflower.jpg" alt="Cauliflower" id="cauliflower" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">CAULI FLOWER</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\B-C\cherry.jpg" alt="Cherry" id="cherry" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">CHERRY</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\B-C\cucumber.jpg" alt="Cucumber" id="cucumber" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">CUCUMBER</h4>
+    </button>
+</span>
+    <span *ngIf='selectedItemRange=="D-J"'>
+      <!--D-->
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\D-J\dates.jpg" alt="Dates" id="dates" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">DATES</h4>
+    </button>
+    <!--E-->
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\D-J\elderBerry.jpg" alt="ElderBerry" id="elderBerry" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">ELDER BERRY</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\D-J\endive.jpg" alt="Endive" id="endive" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">ENDIVE</h4>
+    </button>
+    <!--F-->
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\D-J\fig.jpg" alt="Fig" id="fig" width="84vh" height="84vh" (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">FIG</h4>
+    </button>
+    <!--G-->
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\D-J\grapes.jpg" alt="Graphes" id="grapes" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">GRAPES</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\D-J\greenBean.jpg" alt="Green Bean" id="greenBean" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">GREEN BEAN</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\D-J\guava.jpg" alt="Guava" id="guava" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">GUAVA</h4>
+    </button>
+    <!--H-->
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\D-J\haricotBeans.jpg" alt="Haricot Beans" id="haricotBeans" width="84vh"
+        height="84vh" (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">HARICOT BEANS</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\D-J\honeydewMelon.jpg" alt="Honeydew Melon" id="honeydewMelon" width="84vh"
+        height="84vh" (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">HONEYDEW MELON</h4>
+    </button>
+</span>
+
+<span *ngIf='selectedItemRange=="K-M"'>
+  <!--K-->
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\K-M\kiwi.jpg" alt="Kiwi" id="kiwi" width="84vh" height="84vh" (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">KIWI</h4>
+    </button>
+    <!--L-->
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\K-M\leek.jpg" alt="Leek" id="leek" width="84vh" height="84vh" (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">LEEK</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\K-M\legumesKaunviljad.jpeg" alt="LegumesKaunviljad.jpeg" id="legumesKaunviljad"
+        width="84vh" height="84vh" (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">LEGUMES KAUNVILJAD</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\K-M\lemon.jpeg" alt="Lemon" id="lemon" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">LEMON</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\K-M\lettuce.jpg" alt="Lettuce" id="lettuce" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">LETTUCE</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\K-M\lime.jpg" alt="Lime" id="lime" width="84vh" height="84vh" (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">LIME</h4>
+    </button>
+    <!--M-->
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\K-M\mango.jpeg" alt="Mango" id="mango" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">MANGO</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\K-M\melon.jpeg" alt="Melon" id="melon" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">MELON</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\K-M\mushroom.jpeg" alt="Mushroom" id="mushroom" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">MUSHROOM</h4>
+    </button>
+  </span>
+  
+  <span *ngIf='selectedItemRange=="N-O"'>
+<!--N-->
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\N-O\nectarine.jpeg" alt="Nectarine" id="nectarine" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">NECTARINE</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\N-O\nut.jpg" alt="Nut" id="nut" width="84vh" height="84vh" (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">NUT</h4>
+    </button>
+    <!--O-->
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\N-O\olive.jpg" alt="Olive" id="olive" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">OLIVE</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\N-O\onion.jpg" alt="Onion" id="onion" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">ONION</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\N-O\orange.jpg" alt="Orange" id="orange" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">ORANGE</h4>
+    </button>
+</span>
+
+<span *ngIf='selectedItemRange=="P"'>
+  <!--P-->
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\P\pea.jpeg" alt="Pea" id="pea" width="84vh" height="84vh" (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">PEA</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\P\peanut.jpg" alt="Peanut" id="peanut" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">PEANUT</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\P\pear.jpg" alt="Pear" id="pear" width="84vh" height="84vh" (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">PEA</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\P\pepper.jpg" alt="Pepper" id="pepper" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">PEPPER</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\P\pineapple.jpg" alt="Pineapple" id="pineapple" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">PINEAPPLE</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\P\plum.jpeg" alt="Plum" id="plum" width="84vh" height="84vh" (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">PLUM</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\P\potato.jpg" alt="Potato" id="potato" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">POTATO</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\P\pumpkin.jpg" alt="Pumpkin" id="pumpkin" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">PUMPKIN</h4>
+    </button>
+</span>
+
+<span *ngIf='selectedItemRange=="Q-S"'>
+  <!--Q-->
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\Q-S\quince.jpg" alt="Quince" id="quince" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">QUINCE</h4>
+    </button>
+    <!--R-->
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\Q-S\radish.jpg" alt="Radish" id="radish" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">RADISH</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\Q-S\raisin.jpg" alt="Raisin" id="raisin" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">RAISIN</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\Q-S\redOnion.jpg" alt="RedOnion" id="redOnion" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">RED ONION</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\Q-S\rhubarb.jpg" alt="Rhubarb" id="rhubarb" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">RHUBARB</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\Q-S\satsuma.jpg" alt="Satsuma" id="satsuma" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">SATSUMA</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\Q-S\spinach.jpg" alt="Spinach" id="spinach" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">SPINACH</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\Q-S\squash.jpg" alt="Squash" id="apple" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">SQUASH</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\Q-S\strawberry.jpg" alt="Strawberry" id="strawberry" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">STRAWBERRY</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\Q-S\sweetPotato.jpg" alt="SweetPotato" id="sweetPotato" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">SWEET POTATO</h4>
+    </button>
+    </span>
+
+    <span *ngIf='selectedItemRange=="T-Z"'>
+      <!--T-->
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\T-Z\tomato.jpg" alt="Tomato" id="tomato" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">TOMATO</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\T-Z\turnip.jpg" alt="Turnip" id="turnip" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">TURNIP</h4>
+    </button>
+    <!--U-->
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\T-Z\ugliFruit.jpg" alt="UgliFruit" id="ugliFruit" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">UGLIFRUIT</h4>
+    </button>
+    <!--V-->
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\T-Z\victoriaPlum.jpg" alt="VictoriaPlum" id="victoriaPlum" width="84vh"
+        height="84vh" (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">VICTORIAPLUM</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\T-Z\vineLeaf.jpg" alt="VineLeaf" id="vineLeaf" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">VINELEAF</h4>
+    </button>
+    <!--W-->
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\T-Z\watercress.jpeg" alt="WaterCress" id="watercress" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">WATERCRESS</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\T-Z\watermelon.jpg" alt="Watermelon" id="watermelon" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">WATERMELON</h4>
+    </button>
+    <!--Y-->
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\T-Z\yam.jpg" alt="Yam" id="yam" width="84vh" height="84vh" (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">YAM</h4>
+    </button>
+    <!--Z-->
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\T-Z\zucchini.jpeg" alt="Zucchini" id="zucchini" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">ZUCCHINI</h4>
+    </button>
+    </span>
+
+    <!--Popular Items-->
+    
+    <span *ngIf='selectedItemRange=="Popular"'>
+        <!-- <input class="form-control" id="myInput" type="text" placeholder="Search..">
+        <div id="myDIV"> -->
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\Popular\apples.jpg" alt="Apples" id="apple" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">APPLES</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\Popular\banana.jpg" alt="Banana" id="banana" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">BANANA</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\Popular\orange.jpg" alt="Orange" id="orange" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">ORANGE</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\Popular\bread.jpg" alt="Bread" id="bread" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">BREAD</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\Popular\broccoli.jpg" alt="Broccoli" id="broccoli" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">BROCCOLI</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\Popular\carrot.jpg" alt="Carrot" id="carrot" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">CARROT</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\Popular\cauliflower.jpg" alt="Cauliflower" id="cauliflower" width="84vh"
+        height="84vh" (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">CAULI FLOWER</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\Popular\cucumber.jpg" alt="Cucumber" id="cucumber" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">CUCUMBER</h4>
+    </button>
+    <button>
+      <img class="img-fluid" src="..\assets\images\itemImages\Popular\tomato.jpg" alt="Tomato" id="tomato" width="84vh" height="84vh"
+        (click)="itemSelected($event.target.id)">
+      <h4 class="imageCaption">TOMATO</h4>
+    </button>
+  <!-- </div> -->
+  </span>
+ 
+  </div>
+  <script>
+      $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+          var value = $(this).val().toLowerCase();
+          $("#myDIV *").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+          });
+        });
+      });
+      </script>
+
+
+  <div class="col-sm-3" style="background-color:lavender; overflow: auto;">
+      <h5><label class="SelectPayment">Please Select Starting Letter Of Your Item Here </label></h5>
+    <table align="center">
+      <tr>
+        <td>
+          <input class="btn btn-primary" type="submit" id="A" value="A" value="A" (click)="itemRangeSelected($event.target.id)">
+        </td>
+      </tr>
+      <tr height="10"></tr>
+      <tr>
+        <td>
+          <input class="btn btn-primary" type="submit" id="B-C" value="B-C" (click)="itemRangeSelected($event.target.id)">
+        </td>
+      </tr>
+      <tr height="10"></tr>
+      <tr>
+        <td>
+          <input class="btn btn-primary" type="submit" id="D-J" value="D-J" (click)="itemRangeSelected($event.target.id)">
+        </td>
+      </tr>
+      <tr height="10"></tr>
+      <tr>
+        <td>
+          <input class="btn btn-primary" type="submit" id="K-M" value="K-M" (click)="itemRangeSelected($event.target.id)">
+        </td>
+      </tr>
+      <tr height="10"></tr>
+      <tr>
+        <td>
+          <input class="btn btn-primary" type="submit" id="N-O" value="N-O" (click)="itemRangeSelected($event.target.id)">
+        </td>
+      </tr>
+      <tr height="10"></tr>
+      <tr>
+        <td>
+          <input class="btn btn-primary" type="submit" id="P" value="P" (click)="itemRangeSelected($event.target.id)">
+        </td>
+      </tr>
+      <tr height="10"></tr>
+      <tr>
+        <td>
+          <input class="btn btn-primary" type="submit" id="Q-S" value="Q-S" (click)="itemRangeSelected($event.target.id)">
+        </td>
+      </tr>
+      <tr height="10"></tr>
+      <tr>
+        <td>
+          <input class="btn btn-primary" type="submit" id="T-Z" value="T-Z" (click)="itemRangeSelected($event.target.id)">
+        </td>
+      </tr>
+      <tr height="10"></tr>
+      <tr>
+        <td>
+          <input class="ItemButtons" class="btn btn-primary" type="submit" id="Popular" value="Popular" (click)="itemRangeSelected($event.target.id)">
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+</div>
+
+<!-- <script>
+    $(document).ready(function(){
+      $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#myDIV *").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+    </script> -->
+
+

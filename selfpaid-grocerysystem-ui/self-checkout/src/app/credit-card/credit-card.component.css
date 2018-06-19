@@ -1,0 +1,8 @@
+.leftRightHeight div {
+    height: 84vh; /* 30% of viewport height*/
+  }
+  .SelectPayment{
+    color: blue;
+    text-align: center
+    
+}

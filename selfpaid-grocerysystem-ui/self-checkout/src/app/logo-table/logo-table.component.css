@@ -1,0 +1,45 @@
+
+.logoTableImage{
+    margin: 5%;
+   text-align: center;
+   
+}
+
+.selfCheckoutImageText{
+    font-weight: bold;
+    color:rgb(255, 127, 170);
+}
+
+.itemDisplayTable thead {
+    width: 100%;
+  }
+ 
+  .itemDisplayTable tbody {
+    height: 250px;
+    overflow-y: auto;
+    width: 100%;
+  }
+ 
+  .itemDisplayTable thead tr{
+    width: 100%;
+  }
+ 
+   .itemDisplayTable tr{
+     width: 100%;
+   }
+ 
+  .itemDisplayTable thead, .itemDisplayTable tbody, .itemDisplayTable tr, .itemDisplayTable td, .itemDisplayTable th{
+    display: inline-block;
+  }
+ 
+  .itemDisplayTable thead{
+    background:  #88bce9;
+    color: #000000;
+  }
+ 
+  .itemDisplayTable tbody td, .itemDisplayTable thead > tr> th{
+    float: left;
+    border-bottom-width: 0;
+    overflow: auto;
+    font-size: 13px;
+  }

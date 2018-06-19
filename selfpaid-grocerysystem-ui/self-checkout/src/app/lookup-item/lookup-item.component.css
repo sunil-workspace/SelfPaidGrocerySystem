@@ -1,0 +1,29 @@
+.leftRightHeight div {
+    height: 84vh; /* 30% of viewport height*/
+  }
+
+.item-scroll {
+  background-color: lightblue;
+  width: 110px;
+  height: 110px;
+  overflow: auto;
+}
+
+.img-fluid {
+ width:33vh;
+  align-self:center;
+  height: 20vh
+}
+
+.btn {
+  min-width:55px
+  
+}
+
+.SelectPayment{
+  color:rgb(255, 127, 170);
+  text-align: center;
+  font-style: normal;
+  
+  
+}

@@ -1,0 +1,41 @@
+<!-- small logo, Application Name (Self Checkout), Textfiled, Member button, Not a member button -->
+<div class="onLoadRight">
+    <img class="smallLogo" alt="Self Checkout Image" width="20%" height="20%" src="..\assets\images\cartSymbol.jpg" align="middle">
+    <h4 class="smallLogoImageText">Self Checkout</h4>
+    <br>
+
+    <span *ngIf='notAvalidMember != ""' style="color:rgb(255, 127, 127) ">
+        {{notAvalidMember}}
+        <br>
+        <br>
+    </span>
+
+
+
+    <form class="form-inline">
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="MemberIdText">Already a Member? </label>&nbsp;&nbsp;&nbsp;
+      <!-- <input type="text" class="form-control" id="memberId" [(ngModel)]="memberId" [ngModelOptions]="{standalone: true}" value="memberId" placeholder="Enter Member ID"> -->
+      <input type="text" class="form-control" id="memberId" [(ngModel)]="memberId"  name="member" value="memberId" placeholder="Enter Member ID">
+    </div>
+    <button type="submit" class="btn btn-primary mb-2" (click)="displayLookupFinishPayButtonsForMember(memberId)" >Member</button>
+  </form>
+    <br>
+    <button type="submit" class="btn btn-primary mb-2" (click)="displayLookupFinishPayButtonsForGuest()" >Guest</button>
+</div>
+
+    <!-- <form class="form-inline">
+        <div class="form-group row">
+            <div class="col-xs-2">
+                <label for="MemberIdText">Already a Member? </label>&nbsp;&nbsp;&nbsp;
+                <input type="text" class="form-control" id="memberId" [(ngModel)]="memberId" [ngModelOptions]="{standalone: true}" value="memberId"
+                    placeholder="Enter Member ID">
+            </div>
+            <div class="col-xs-2">
+                <button type="submit" class="form-control" (click)="displayLookupFinishPayButtonsForMember(memberId)">Member</button>
+            </div>
+        </div>
+    </form>
+    <br>
+    <button type="submit" class="btn btn-primary mb-2" (click)="displayLookupFinishPayButtonsForGuest()">Guest</button>
+</div> -->

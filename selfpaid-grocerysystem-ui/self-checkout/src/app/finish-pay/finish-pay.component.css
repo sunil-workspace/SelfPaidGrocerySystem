@@ -1,0 +1,17 @@
+.img-fluid{
+    width:50vh;
+    align-self:center;
+    height: 30vh
+  
+  }
+
+  .SelectPayment{
+      color: blue;
+      text-align: center
+      
+  }
+
+  .FinishPay div{
+    align-items: center
+    
+  }

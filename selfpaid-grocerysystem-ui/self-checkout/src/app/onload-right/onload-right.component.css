@@ -1,0 +1,34 @@
+.btn{
+    height: auto;   
+}
+
+.onLoadRight{
+    align-items: auto;
+}
+
+.onloadRightSideimage{
+    margin: 10%;
+   text-align: center;
+   
+}
+
+.smallLogoImageText{
+    font-weight: bold;
+    color:rgb(255, 127, 170);
+}
+
+.MemberIdText{
+    color:rgb(255, 127, 127);  
+    font-weight: bold;
+}
+
+.onloadRightSideMember{
+    text-align: center; 
+}
+smallLogo{
+    margin-top: 10%;
+
+   text-align: center;
+      
+}
+
