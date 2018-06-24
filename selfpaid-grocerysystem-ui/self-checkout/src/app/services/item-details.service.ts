@@ -10,7 +10,7 @@ export class ItemDetailsService {
 
   getItemDetails(selectedItem){
     console.log("Came to ItemDetailsService: getItemDetails method, The item selected is:: ", selectedItem);
-    return this.http.get('http://localhost:8080/getItemDetails/'+selectedItem).map(res => res.json());
+    return this.http.get('http://localhost:8080/selfpaidgrocerysystem/getItemDetails/'+selectedItem).map(res => res.json());
     /*if(selectedItem == "apple"){
     return this.http.get('assets/jsons/itemDetails.json').map(res => res.json());
     } else if(selectedItem == "avocado"){
@@ -22,7 +22,7 @@ export class ItemDetailsService {
 
   postItemDetails(finalSelectedItemsArr){
     console.log("Came to ItemDetailsService: postItemDetails method, The Final Items List is:: ", finalSelectedItemsArr);
-    return this.http.post('http://localhost:8080/postItemDetails/', finalSelectedItemsArr, "").map(res => res.json());
+    return this.http.post('http://localhost:8080/selfpaidgrocerysystem/postItemDetails/', finalSelectedItemsArr, "").map(res => res.json());
   }
 
 }
