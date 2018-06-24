@@ -8,8 +8,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.selfpaidgrocerysystemservices.data.jdbc.repo.impl.MembershipJdbcRepositoryImpl;
+import com.selfpaidgrocerysystemservices.data.mongo.repo.impl.MembershipMongoRepositoryImpl;
 import com.selfpaidgrocerysystemservices.dto.Member;
-import com.selfpaidgrocerysystemservices.repo.impl.MembershipRepositoryImpl;
+import com.selfpaidgrocerysystemservices.dto.MongoMember;
 import com.selfpaidgrocerysystemservices.service.ValidateMemberIdService;
 
 @Service
@@ -18,7 +20,10 @@ public class ValidateMemberIdServiceImpl implements ValidateMemberIdService {
 	private static Logger logger = LoggerFactory.getLogger(ValidateMemberIdServiceImpl.class);
 
 	@Autowired
-	MembershipRepositoryImpl membershipRepository;
+	MembershipJdbcRepositoryImpl membershipJdbcRepository;
+
+	@Autowired
+	MembershipMongoRepositoryImpl membershipMongoRepository;
 
 	/*@Override
 	public boolean verifyMemberId(int memberNumber) {
@@ -48,9 +53,28 @@ public class ValidateMemberIdServiceImpl implements ValidateMemberIdService {
 		String isValid = "false";
 		JSONObject jsonObj = new JSONObject();
 		try {
-			List<Member> members = membershipRepository.findMember(memberNumber);
+			List<Member> members = membershipJdbcRepository.findMember(memberNumber);
 
 			if(members.size()>0) {
+				isValid = "true";
+			}
+			jsonObj.put("isValidMember", isValid);
+		} catch(Exception e) {
+			e.printStackTrace();
+			logger.error("Exception occured in verifyMemberIdNew method " + e.getMessage());
+		}
+		return jsonObj;
+	}
+
+	@Override
+	public JSONObject verifyMemberIdFromMongoDB(int memberNumber) {
+
+		String isValid = "false";
+		JSONObject jsonObj = new JSONObject();
+		try {			
+			MongoMember members = membershipMongoRepository.findMember(String.valueOf(memberNumber));
+
+			if(members != null) {
 				isValid = "true";
 			}
 			jsonObj.put("isValidMember", isValid);

@@ -10,17 +10,21 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.selfpaidgrocerysystemservices.data.jdbc.repo.ItemJdbcRepository;
+import com.selfpaidgrocerysystemservices.data.mongo.repo.ItemMongoRepository;
 import com.selfpaidgrocerysystemservices.dto.Item;
 import com.selfpaidgrocerysystemservices.dto.ItemSelected;
 import com.selfpaidgrocerysystemservices.exceptions.SelfCheckoutException;
-import com.selfpaidgrocerysystemservices.repo.ItemRepository;
 import com.selfpaidgrocerysystemservices.service.ItemDetailsService;
 
 @Service
 public class ItemDetailsServiceImpl implements ItemDetailsService {
 
 	@Autowired
-	ItemRepository itemRepository;
+	ItemJdbcRepository itemJdbcRepository;
+	
+	@Autowired
+	ItemMongoRepository itemMongoRepository;
 
 	/*@Override
 	public Item getItemDetailsFromDB(String itemName) {
@@ -39,15 +43,15 @@ public class ItemDetailsServiceImpl implements ItemDetailsService {
 	public JSONObject getItemDetailsFromDB(String itemName) {
 		JSONObject jsonObj = new JSONObject();
 		try {
-			List<Item> items = itemRepository.getItemDetails(itemName);
+			List<Item> items = itemJdbcRepository.getItemDetails(itemName);
 
 			if(items.size()>0) {
 				Item item = items.get(0);
 
-				jsonObj.put("NAME", item.getNAME());
-				jsonObj.put("PRICE", item.getPRICE());
+				jsonObj.put("NAME", item.getId());
+				jsonObj.put("PRICE", item.getPrice());
 				jsonObj.put("QUANTITY", 1);
-				jsonObj.put("WEIGHT", item.getWEIGHT());
+				jsonObj.put("WEIGHT", item.getWeight());
 			}
 		} catch(SelfCheckoutException | JSONException e) {
 			e.printStackTrace();
@@ -85,7 +89,7 @@ public class ItemDetailsServiceImpl implements ItemDetailsService {
 				itemsSelected.setPURCHASED_DATE(currentSqlDate);
 				itemsSelectedList.add(itemsSelected);
 			}
-			isInserted = itemRepository.postItemDetails(itemsSelectedList);
+			isInserted = itemJdbcRepository.postItemDetails(itemsSelectedList);
 			responseJsonObj.put("isInserted", isInserted);
 
 		} catch (SelfCheckoutException | JSONException e) {

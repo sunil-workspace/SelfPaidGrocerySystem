@@ -1,4 +1,4 @@
-package com.selfpaidgrocerysystemservices.repo.impl;
+package com.selfpaidgrocerysystemservices.data.jdbc.repo.impl;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -9,12 +9,12 @@ import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.selfpaidgrocerysystemservices.data.jdbc.repo.ItemJdbcRepository;
 import com.selfpaidgrocerysystemservices.dto.Item;
 import com.selfpaidgrocerysystemservices.dto.ItemSelected;
-import com.selfpaidgrocerysystemservices.repo.ItemRepository;
 
 @Repository
-public class ItemRepositoryImpl implements ItemRepository{
+public class ItemJdbcRepositoryImpl implements ItemJdbcRepository{
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;

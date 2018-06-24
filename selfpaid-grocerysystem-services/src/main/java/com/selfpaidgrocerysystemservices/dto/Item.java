@@ -1,51 +1,46 @@
 package com.selfpaidgrocerysystemservices.dto;
 
-import java.util.Date;
-
 public class Item {
 
-	private String NAME;
-	private double PRICE;
-	private double WEIGHT;
+	private String id;
+	private double price;
+	private double weight;
 
 	public Item() {
 		//no-arg constructor
 	}
+	
 
-	public Item(String nAME, double pRICE, double wEIGHT) {
+	public Item(String id, double price, double weight) {
 		super();
-		NAME = nAME;
-		PRICE = pRICE;
-		WEIGHT = wEIGHT;
+		this.id = id;
+		this.price = price;
+		this.weight = weight;
 	}
 
-	public String getNAME() {
-		return NAME;
+
+	public String getId() {
+		return id;
 	}
 
-	public void setNAME(String nAME) {
-		NAME = nAME;
+	public void setId(String id) {
+		this.id = id;
 	}
 
-	public double getPRICE() {
-		return PRICE;
+	public double getPrice() {
+		return price;
 	}
 
-	public void setPRICE(double pRICE) {
-		PRICE = pRICE;
+	public void setPrice(double price) {
+		this.price = price;
 	}
 
-	public double getWEIGHT() {
-		return WEIGHT;
+	public double getWeight() {
+		return weight;
 	}
 
-	public void setWEIGHT(double wEIGHT) {
-		WEIGHT = wEIGHT;
-	}
-
-	@Override
-	public String toString() {
-		return "Item [NAME=" + NAME + ", PRICE=" + PRICE + ", WEIGHT=" + WEIGHT + "]";
+	public void setWeight(double weight) {
+		this.weight = weight;
 	}
 
 }

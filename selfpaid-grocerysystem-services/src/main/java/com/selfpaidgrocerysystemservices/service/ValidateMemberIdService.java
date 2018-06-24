@@ -9,5 +9,7 @@ public interface ValidateMemberIdService {
 	//public boolean verifyMemberId(int memberNumber);
 	
 	public JSONObject verifyMemberIdNew(int memberNumber);
+	
+	public JSONObject verifyMemberIdFromMongoDB(int memberNumber);
 
 }

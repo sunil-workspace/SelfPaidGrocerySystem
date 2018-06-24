@@ -5,6 +5,7 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,6 +29,9 @@ public class SelfCheckoutController {
 
 	@Autowired
 	ItemDetailsService itemDetailsService;
+	
+	@Value("${doFetchFromMongo}")
+	private boolean doFetchFromMongo;
 
 	@RequestMapping(method=RequestMethod.GET, value="/getItemDetails/{itemName}")
 	public ResponseEntity<?> getItemDetails(@PathVariable("itemName") String itemName) {
@@ -51,8 +55,11 @@ public class SelfCheckoutController {
 		JSONObject jsonObj = new JSONObject();
 		HttpHeaders headers = new HttpHeaders();
 		try {
-			jsonObj = validateMemberIdService.verifyMemberIdNew(Integer.parseInt(memberNumber));
-
+			if(doFetchFromMongo) {
+				jsonObj = validateMemberIdService.verifyMemberIdFromMongoDB(Integer.parseInt(memberNumber));
+			} else {
+				jsonObj = validateMemberIdService.verifyMemberIdNew(Integer.parseInt(memberNumber));
+			}
 		} catch(NumberFormatException | ClassCastException | NullPointerException e) {
 			logger.error("Exception occured while constructing JSON Object " + e.getMessage());
 			try {
