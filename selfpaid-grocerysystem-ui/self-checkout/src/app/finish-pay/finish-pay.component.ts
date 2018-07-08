@@ -26,7 +26,7 @@ export class FinishPayComponent implements OnInit {
   }
 
   creditCardSelected():void{
-    console.log("");
+    console.log("Selected Credit Card");
     this.selectPaymentType = false;
     this.creditCard = true;
   }

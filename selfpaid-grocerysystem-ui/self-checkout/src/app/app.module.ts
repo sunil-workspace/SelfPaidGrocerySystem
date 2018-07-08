@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { Payment } from './payment';
 
 //Components
 import { AppComponent } from './app.component';
@@ -25,6 +26,7 @@ import { ChildComponent } from './child/child.component';
 //Services
 import { ItemDetailsService } from './services/item-details.service';
 import { MemberidValidatorService } from './services/memberid-validator.service';
+import { PaymentDetailsService } from './services/payment-details.service';
 
 
 @NgModule({
@@ -52,7 +54,7 @@ import { MemberidValidatorService } from './services/memberid-validator.service'
     HttpModule,
     FormsModule
   ],
-  providers: [ItemDetailsService, MemberidValidatorService],
+  providers: [ItemDetailsService, MemberidValidatorService, PaymentDetailsService, Payment],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { Payment }

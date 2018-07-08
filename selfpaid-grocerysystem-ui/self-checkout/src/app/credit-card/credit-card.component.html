@@ -8,21 +8,23 @@
       <tr>
         <td>Name on the Card: </td>
         <td>
-          <input type="text">
+          <!--<input type="text">-->
+          <input type="text" id="creditCardName" [(ngModel)]="creditCardName" name="creditCardName" value="creditCardName" placeholder="Enter Name on the Card">
         </td>
       </tr>
 
       <tr>
         <td>Card Number: </td>
         <td>
-          <input type="text">
+          <input type="text" id="creditCardNumber" [(ngModel)]="creditCardNumber" name="creditCardNumber" value="creditCardNumber" placeholder="Enter Credit Card Number">
         </td>
       </tr>
 
       <tr>
           <td>Expiry Date: </td>
           <td>
-            <input type="month">
+            <!--<input type="month">-->
+            <input type="month" id="creditCardExpDate" [(ngModel)]="creditCardExpDate" name="creditCardExpDate" value="creditCardExpDate" placeholder="Enter Card Expiry Date">
           </td>
         </tr>
 
@@ -42,13 +44,15 @@
       <tr>
         <td>Card Code: </td>
         <td>
-          <input type="text">
+          <!--<input type="text">-->
+          <input type="text" id="creditCardSecurityCode" [(ngModel)]="creditCardSecurityCode" name="creditCardSecurityCode" value="creditCardSecurityCode" placeholder="Enter Card Security Code">
         </td>
       </tr>
 
       <tr>
         <td colspan=2 align="center">
-          <input type="submit" name="submitButton" value="submit">
+          <!--<input type="submit" name="submitButton" value="submit">-->
+          <button type="submit" class="btn btn-primary mb-2" (click)="passCreditCardDetails(memberId)" >Submit</button>
         </td>
       </tr>
 

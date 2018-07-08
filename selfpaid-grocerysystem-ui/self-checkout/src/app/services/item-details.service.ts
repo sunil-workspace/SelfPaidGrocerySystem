@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
 //import { HttpClient } from 'selenium-webdriver/http';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { Payment } from './../payment';
 
 @Injectable()
 export class ItemDetailsService {
+
+  paymentJson : string;
 
   constructor(public http:Http) { }
 
@@ -21,8 +24,19 @@ export class ItemDetailsService {
   }
 
   postItemDetails(finalSelectedItemsArr){
-    console.log("Came to ItemDetailsService: postItemDetails method, The Final Items List is:: ", finalSelectedItemsArr);
+    console.log("Came to ItemDetailsService:postItemDetails method, The Final Items List is:: ", finalSelectedItemsArr);
     return this.http.post('http://localhost:8080/selfpaidgrocerysystem/postItemDetails/', finalSelectedItemsArr, "").map(res => res.json());
   }
+
+  /*postCreditCardDetails(payment: Payment) {
+    console.log("Came to PaymentDetailsService:postPaymentDetails method, The Payment details are:: ", payment);
+
+    const url = 'http://localhost:8080/selfpaidgrocerysystem/postPaymentDetails/';
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    this.paymentJson = JSON.parse(JSON.stringify(payment));
+    return this.http.post(url, this.paymentJson, options);
+  }*/
 
 }
