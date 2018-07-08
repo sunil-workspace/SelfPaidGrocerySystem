@@ -48,7 +48,7 @@ public class ItemDetailsServiceImpl implements ItemDetailsService {
 			if(items.size()>0) {
 				Item item = items.get(0);
 
-				jsonObj.put("NAME", item.getId());
+				jsonObj.put("NAME", item.getName());
 				jsonObj.put("PRICE", item.getPrice());
 				jsonObj.put("QUANTITY", 1);
 				jsonObj.put("WEIGHT", item.getWeight());

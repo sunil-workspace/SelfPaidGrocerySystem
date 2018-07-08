@@ -2,29 +2,26 @@ package com.selfpaidgrocerysystemservices.dto;
 
 public class Item {
 
-	private String id;
+	private String name;
 	private double price;
 	private double weight;
 
 	public Item() {
 		//no-arg constructor
 	}
-	
 
-	public Item(String id, double price, double weight) {
-		super();
-		this.id = id;
+	public Item(String name, double price, double weight) {
+		this.name = name;
 		this.price = price;
 		this.weight = weight;
 	}
 
-
-	public String getId() {
-		return id;
+	public String getName() {
+		return name;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public double getPrice() {

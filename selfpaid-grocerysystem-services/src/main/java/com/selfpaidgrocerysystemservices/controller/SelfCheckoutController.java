@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.selfpaidgrocerysystemservices.dto.Payment;
 import com.selfpaidgrocerysystemservices.exceptions.SelfCheckoutException;
 import com.selfpaidgrocerysystemservices.service.ItemDetailsService;
+import com.selfpaidgrocerysystemservices.service.PaymentDetailsService;
 import com.selfpaidgrocerysystemservices.service.ValidateMemberIdService;
 
 @RestController
@@ -29,6 +31,9 @@ public class SelfCheckoutController {
 
 	@Autowired
 	ItemDetailsService itemDetailsService;
+	
+	@Autowired
+	PaymentDetailsService paymentDetailsService;
 	
 	@Value("${doFetchFromMongo}")
 	private boolean doFetchFromMongo;
@@ -96,6 +101,53 @@ public class SelfCheckoutController {
 		}
 		return new ResponseEntity<>(responseJson.toString(), headers, HttpStatus.CREATED);	
 	}
+	
+	@RequestMapping(method=RequestMethod.POST, value="/postPaymentDetails", consumes= {"application/json", "application/xml"}, produces="application/json")
+	public ResponseEntity<?> postPaymentDetails(@RequestBody String paymentDetails) {
+		logger.info("PaymentDetails Received: " + paymentDetails);
+
+		HttpHeaders headers = new HttpHeaders();
+		JSONObject responseJson = new JSONObject();
+
+		try {
+			responseJson = null;//paymentDetailsService.postPaymentDetailsToDB(paymentDetails);
+		} catch (SelfCheckoutException e) {
+			e.printStackTrace();
+			try {
+				responseJson.put("isInserted", false);
+			} catch (JSONException e1) {
+				e1.printStackTrace();
+			}
+			return new ResponseEntity<>(responseJson.toString(), headers, HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<>(responseJson.toString(), headers, HttpStatus.CREATED);	
+	}
+	
+	@RequestMapping(method=RequestMethod.GET, value="/getPaymentDetails/{creditCardDetails}")
+	public ResponseEntity<?> getPaymentDetails(@PathVariable("creditCardDetails") String creditCardDetails) {
+		logger.info("getPaymentDetails");
+		logger.info("CreditCard Details: " + creditCardDetails);
+		String isValid = "false";
+		JSONObject jsonObj = new JSONObject();
+		HttpHeaders headers = new HttpHeaders();
+		try {
+			
+		} catch(NumberFormatException | ClassCastException | NullPointerException e) {
+			logger.error("Exception occured while constructing JSON Object " + e.getMessage());
+			try {
+				jsonObj.put("isValidMember", "Please enter only numbers");
+			} catch (JSONException e1) {
+				throw new SelfCheckoutException("Exception occured while constructing JSONObject");
+			}
+			return new ResponseEntity<>(jsonObj.toString(), headers, HttpStatus.NOT_FOUND);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		logger.info("Is MemberValid: " + isValid);
+		logger.info("End of memberIdValidator");
+		return new ResponseEntity<>(jsonObj.toString(), headers, HttpStatus.OK);
+	}
+
 
 
 }
