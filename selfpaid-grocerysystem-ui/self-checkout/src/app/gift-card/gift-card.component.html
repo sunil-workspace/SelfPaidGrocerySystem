@@ -8,14 +8,14 @@
       <tr>
         <td>Card Number: </td>
         <td>
-          <input type="text">
+            <input type="text" id="giftCardNumber" [(ngModel)]="giftCardNumber" name="giftCardNumber" value="giftCardNumber" placeholder="Enter Gift Card Number">
         </td>
       </tr>
 
-      <tr>
+      <!--<tr>
         <td>Expiry Date: </td>
         <td>
-          <select>
+          <select id="giftCardExpDate" [(ngModel)]="giftCardExpDate" name="giftCardExpDate" value="giftCardExpDate">
             <option>---select month---</option>
             <option>Jan</option>
             <option>Feb</option>
@@ -31,18 +31,26 @@
             <option>Dec</option>
           </select>
         </td>
-      </tr>
+      </tr>-->
+
+      <tr>
+          <td>Expiry Date: </td>
+          <td>
+            <!--<input type="month">-->
+            <input type="month" id="giftCardExpDate" [(ngModel)]="giftCardExpDate" name="giftCardExpDate" value="giftCardExpDate" placeholder="Enter Card Expiry Date">
+          </td>
+        </tr>
 
       <tr>
         <td>Card Code: </td>
         <td>
-          <input type="text">
+            <input type="text" id="giftCardCode" [(ngModel)]="giftCardCode" name="giftCardCode" value="giftCardCode" placeholder="Enter Gift Card Code">
         </td>
       </tr>
 
       <tr>
         <td colspan=2 align="center">
-          <input type="submit" name="submitButton" value="submit">
+            <button type="submit" class="btn btn-primary mb-2" (click)="passGiftCardDetails(memberId)" >Submit</button>
         </td>
       </tr>
 

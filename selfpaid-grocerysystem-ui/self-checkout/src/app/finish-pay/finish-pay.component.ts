@@ -8,37 +8,37 @@ import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 })
 export class FinishPayComponent implements OnInit {
 
-  selectPaymentType : boolean = true;
-  cash : boolean = false; 
-  creditCard : boolean = false; 
-  debitCard : boolean = false; 
-  giftCard : boolean = false; 
+  selectPaymentType: boolean = true;
+  cash: boolean = false;
+  creditCard: boolean = false;
+  debitCard: boolean = false;
+  giftCard: boolean = false;
 
   constructor() { }
-  
+
   ngOnInit() {
   }
 
-  cashSelected():void{
-    console.log("");
+  cashSelected(): void {
+    console.log("Cash payment option selected");
     this.selectPaymentType = false;
     this.cash = true;
   }
 
-  creditCardSelected():void{
-    console.log("Selected Credit Card");
+  creditCardSelected(): void {
+    console.log("Credit Card payment option selected");
     this.selectPaymentType = false;
     this.creditCard = true;
   }
 
-  debitCardSelected():void{
-    console.log("");
+  debitCardSelected(): void {
+    console.log("Debit Card payment option selected");
     this.selectPaymentType = false;
     this.debitCard = true;
   }
 
-  giftCardSelected():void{
-    console.log("");
+  giftCardSelected(): void {
+    console.log("Gift Card payment option selected");
     this.selectPaymentType = false;
     this.giftCard = true;
   }

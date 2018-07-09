@@ -27,6 +27,7 @@ import { ChildComponent } from './child/child.component';
 import { ItemDetailsService } from './services/item-details.service';
 import { MemberidValidatorService } from './services/memberid-validator.service';
 import { PaymentDetailsService } from './services/payment-details.service';
+import { ReceiptGenerationComponent } from './receipt-generation/receipt-generation.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { PaymentDetailsService } from './services/payment-details.service';
     OnloadLeftComponent,
     OnloadRightComponent,
     ParentComponent,
-    ChildComponent
+    ChildComponent,
+    ReceiptGenerationComponent
   ],
   imports: [
     BrowserModule,

@@ -17,15 +17,15 @@ export class FullPageComponent implements OnInit {
   displayLeftRight: boolean = true;
   lookupFinishPayButtons: boolean = false;
   lookupFinishFlow: boolean = false;
-  // finishAndPay : boolean = false;
+  finishAndPay : boolean = false;
 
   @Output() emitToTable = new EventEmitter<any>();
 
   itemDetails: any;
   itemDetailsArr: any = [];
 
-  isItemFound : boolean = false;
-  itemFoundIndex : number;
+  isItemFound: boolean = false;
+  itemFoundIndex: number;
 
   constructor() { }
 
@@ -35,26 +35,24 @@ export class FullPageComponent implements OnInit {
   onClickingMemberButton() {
     this.displayLeftRight = false,
       this.lookupFinishPayButtons = true
-
   }
 
   onClickingLookupButton() {
-
     this.lookupFinishPayButtons = false,
       this.lookupFinishFlow = true
   }
 
   onClickingFinishPay() {
     this.lookupFinishPayButtons = false
-    //this.finishAndPay=true
+    this.finishAndPay=true
 
   }
   onClickingItem(itemDetails) {
     //console.log("Event came from lookup item component: ", itemDetails);
     this.lookupFinishFlow = false;
     this.lookupFinishPayButtons = true;
-    
- 
+
+
 
     //Before adding, check if the same item exists, if exists, 
     //get the Quantity and increase the quantity by 1
@@ -74,19 +72,19 @@ export class FullPageComponent implements OnInit {
 
   }
 
-  callAMethod(itemDetails){
-      console.log("this.isItemFound: ", this.isItemFound, " Index: ", this.itemFoundIndex);
-      if(this.isItemFound == true){
-        console.log("Found matching item");
-        let quantity = this.itemDetailsArr[this.itemFoundIndex]["QUANTITY"];
-        quantity = ++quantity;
-        this.itemDetailsArr[this.itemFoundIndex]["QUANTITY"] = quantity;
-        this.itemDetailsArr[this.itemFoundIndex]["PRICE"] = quantity * itemDetails["PRICE"]
-      } else{
-        console.log("Not found matching item");
-        this.itemDetailsArr.push(itemDetails);
-      }
-      this.isItemFound = false;
+  callAMethod(itemDetails) {
+    console.log("this.isItemFound: ", this.isItemFound, " Index: ", this.itemFoundIndex);
+    if (this.isItemFound == true) {
+      console.log("Found matching item");
+      let quantity = this.itemDetailsArr[this.itemFoundIndex]["QUANTITY"];
+      quantity = ++quantity;
+      this.itemDetailsArr[this.itemFoundIndex]["QUANTITY"] = quantity;
+      this.itemDetailsArr[this.itemFoundIndex]["PRICE"] = quantity * itemDetails["PRICE"]
+    } else {
+      console.log("Not found matching item");
+      this.itemDetailsArr.push(itemDetails);
+    }
+    this.isItemFound = false;
   }
 
 

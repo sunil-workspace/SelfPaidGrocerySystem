@@ -6,11 +6,11 @@
         <div class="row leftRightHeight">
             <div class="col-sm-6" style="background-color:lavender;">
                 <app-onload-left></app-onload-left>
-                
+
             </div>
             <div class="col-sm-6" style="background-color:rgba(230, 245, 250, 0.938);">
-               
-                <app-onload-right  (onClicking)="onClickingMemberButton()"></app-onload-right>
+
+                <app-onload-right (onClicking)="onClickingMemberButton()"></app-onload-right>
             </div>
         </div>
     </ng-template>
@@ -23,15 +23,13 @@
                     <app-logo-table [itemDetailsArr]="itemDetailsArr"></app-logo-table>
                 </div>
                 <div class="col-sm-6" style="background-color:rgba(230, 245, 250, 0.938);">
-                   <app-lookup-finishpay (onClickLookup)="onClickingLookupButton()" (onClickingFinishPay)="onClickingFinishPay()" ></app-lookup-finishpay>
-                                    
+                    <app-lookup-finishpay (onClickLookup)="onClickingLookupButton()" (onClickingFinishPay)="onClickingFinishPay()"></app-lookup-finishpay>
                 </div>
             </div>
         </ng-template>
 
         <ng-template #lookupItemsAndFinishPayTemplate>
-            <span *ngIf="lookupFinishFlow==true; then lookupItemTemplate; else finishAndPayTemplate"></span>
-            <!-- -->
+            <span *ngIf="lookupFinishFlow==true; then lookupItemTemplate; else finishAndPayReceiptGenerationTemplate"></span>
             <ng-template #lookupItemTemplate>
                 <div class="row leftRightHeight">
                     <div class="col-sm-12" style="background-color:rgba(231, 241, 245, 0.938);">
@@ -42,12 +40,17 @@
             </ng-template>
 
             <!-- -->
-            <ng-template #finishAndPayTemplate>
-                <!-- -->
-                <!--<span *ngIf="finishAndPay==true"></span>-->
-                <div class="col-sm-12" style="background-color:rgba(231, 241, 245, 0.938);">
-                <app-finish-pay></app-finish-pay>
-            </div>
+            <ng-template #finishAndPayReceiptGenerationTemplate>
+                <span *ngIf="finishAndPay==true; then finishAndPayTemplate; else receiptGenerationTemplate"></span>
+                <ng-template #finishAndPayTemplate>
+                    <div class="col-sm-12" style="background-color:rgba(231, 241, 245, 0.938);">
+                        <app-finish-pay></app-finish-pay>
+                    </div>
+                </ng-template>
+                <ng-template #receiptGenerationTemplate>
+                    <app-receipt-generation></app-receipt-generation>
+                </ng-template>
+                
             </ng-template>
         </ng-template>
     </ng-template>
