@@ -1,7 +1,14 @@
 package com.selfpaidgrocerysystemservices.service.impl;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +21,8 @@ import com.selfpaidgrocerysystemservices.service.PaymentDetailsService;
 @Service
 public class PaymentDetailsServiceImpl implements PaymentDetailsService {
 
+	private static Logger logger = LoggerFactory.getLogger(PaymentDetailsServiceImpl.class);
+
 	@Autowired
 	PaymentJdbcRepository paymentJdbcRepository;
 
@@ -21,23 +30,22 @@ public class PaymentDetailsServiceImpl implements PaymentDetailsService {
 	PaymentMongoRepository paymentMongoRepository;
 
 	@Override
-	public JSONObject postPaymentDetailsToDB(String paymentDetails) {
+	public JSONObject postPaymentDetailsToDB(Payment payment) {
 		JSONObject responseJsonObj = new JSONObject();
 		boolean isInserted = false;
-		try {
-			JSONObject paymentDetailsJsonObj = new JSONObject(paymentDetails);
-			Payment payment = new Payment();
-			payment.setMemberId("Guest"+new java.util.Date().toString());//This can be based on Member or Guest
-			payment.setNameOnCard(paymentDetailsJsonObj.getString(""));
-			payment.setCardNumber(Long.parseLong(paymentDetailsJsonObj.getString("")));
-			payment.setCardExpiryDate(null);
-			payment.setSecurityCode(Integer.parseInt(paymentDetailsJsonObj.getString("")));
-
+		try {			
+			Date currentDate = new Date();
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyMMddhhmmssMs");
+			String currentDateTime = dateFormat.format(currentDate);
+			payment.setMemberId("Guest"+currentDateTime);
+			//payment.setPaymentDate(new java.sql.Date(Calendar.getInstance().getTimeInMillis()));
+			payment.setPaymentDate(new Timestamp(System.currentTimeMillis()));
 			isInserted = paymentJdbcRepository.postPaymentDetails(payment);
-			responseJsonObj.put("isInserted", isInserted);
-
+			responseJsonObj.put("isCardDetailsInserted", isInserted);
+			logger.info("Payment details are inserted into Database");
 		} catch (SelfCheckoutException | JSONException e) {
 			e.printStackTrace();
+			logger.info("Error occured in PaymentDetailsServiceImpl:postPaymentDetailsToDB method");
 		}	
 		return responseJsonObj;
 	}

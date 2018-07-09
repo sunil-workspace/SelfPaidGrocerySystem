@@ -103,18 +103,18 @@ public class SelfCheckoutController {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, value="/postPaymentDetails", consumes= {"application/json", "application/xml"}, produces="application/json")
-	public ResponseEntity<?> postPaymentDetails(@RequestBody String paymentDetails) {
-		logger.info("PaymentDetails Received: " + paymentDetails);
+	public ResponseEntity<?> postPaymentDetails(@RequestBody Payment payment) {
+		logger.info("PaymentDetails Received: " + payment);
 
 		HttpHeaders headers = new HttpHeaders();
 		JSONObject responseJson = new JSONObject();
 
 		try {
-			responseJson = null;//paymentDetailsService.postPaymentDetailsToDB(paymentDetails);
+			responseJson = paymentDetailsService.postPaymentDetailsToDB(payment);
 		} catch (SelfCheckoutException e) {
 			e.printStackTrace();
 			try {
-				responseJson.put("isInserted", false);
+				responseJson.put("isCardDetailsInserted", false);
 			} catch (JSONException e1) {
 				e1.printStackTrace();
 			}
